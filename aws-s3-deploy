@@ -24,9 +24,9 @@ fi
 # ZIPNAME=${CIRCLE_BRANCH}"-"${CIRCLE_BUILD_NUM}"-"${CIRCLE_SHA1}".zip"
 
 if [[ "${CIRCLE_BRANCH}" = "master" ]]; then
-  ZIPNAME="deployment/docomo-fresh-first-tags-"${SHORT_COMMIT}".zip"
+  ZIPNAME="deployment/docomo-fresh-first-tags-"${CIRCLE_BUILD_NUM}".zip"
 else
-  ZIPNAME="deployment/docomo-39marche-"{BRANCH}"-"${SHORT_COMMIT}".zip"
+  ZIPNAME="deployment/docomo-39marche-"${CIRCLE_BRANCH}"-"${CIRCLE_BUILD_NUM}".zip"
 fi
 
 echo "The zip file name is ZIPNAME. -> ${ZIPNAME}";
