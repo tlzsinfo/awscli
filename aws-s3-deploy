@@ -21,7 +21,15 @@ else
   FILE_EXISTS_BEHAVIOR=${CODE_DEPLOY_FILE_EXISTS_BEHAVIOR}
 fi
 
-ZIPNAME=${CIRCLE_BRANCH}"-"${CIRCLE_BUILD_NUM}"-"${CIRCLE_SHA1}".zip"
+# ZIPNAME=${CIRCLE_BRANCH}"-"${CIRCLE_BUILD_NUM}"-"${CIRCLE_SHA1}".zip"
+
+if [[ "${CIRCLE_BRANCH}" = "master" ]]; then
+  ZIPNAME="deployment/docomo-fresh-first-tags-"${SHORT_COMMIT}".zip"
+else
+  ZIPNAME="deployment/docomo-39marche-"{BRANCH}"-"${SHORT_COMMIT}".zip"
+fi
+
+echo "The zip file name is ZIPNAME. -> ${ZIPNAME}";
 
 # push apps to S3
 S3INFO=`aws deploy push \
