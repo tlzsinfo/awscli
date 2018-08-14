@@ -6,11 +6,11 @@ Docker container for CircleCI2.0 -> codedeploy.
 Tag is correspond to awscli version.
 
 - `latest`
-- `1.14.69`
+- `1.5`
 
 # How to use
 
-This container provides `aws-s3-deploy` command, which allows you to deploy your apps with Codedeploy via Amazon S3.
+This container provides `aws-s3-deploy.sh` command, which allows you to deploy your apps with Codedeploy via Amazon S3.
 
 You can also use this container just for `awscli` command.
 
@@ -72,7 +72,7 @@ workflows:
 
 ## Environmental variables
 
-You need to set following variables to use `asw-s3-deploy` command.
+You need to set following variables to use `asw-s3-deploy.sh` command.
 
 - `AWS_DEFAULT_REGION` *required*
 Set region for your codedeploy application.

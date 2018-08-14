@@ -1,6 +1,6 @@
 FROM alpine:3.6
 
-MAINTAINER innovatorjapan <system@innovator.jp.net>
+MAINTAINER soymilk9521 <soymilk9521@gmail.com>
 
 ARG version=1.14.69
 
@@ -9,6 +9,6 @@ RUN apk -v --update add jq  python  py-pip  ca-certificates  \
     && apk -v --purge del py-pip \ 
     &&  rm -rf /var/cache/apk/* 
 
-ADD aws-s3-deploy /bin
+ADD aws-s3-deploy.sh /bin
 
 CMD ["/bin/sh"]
