@@ -23,10 +23,12 @@ fi
 
 # ZIPNAME=${CIRCLE_BRANCH}"-"${CIRCLE_BUILD_NUM}"-"${CIRCLE_SHA1}".zip"
 
-if [[ "${CIRCLE_BRANCH}" = "master" ]]; then
+if [[ "${CODE_DEPLOY_GROUP_NAME}" = "prod-39marche-deploy-group" ]]; then
   ZIPNAME="deployment/docomo-fresh-first-tags-"${CIRCLE_BUILD_NUM}".zip"
-else
+elif [[ "${CODE_DEPLOY_GROUP_NAME}" = "dev-39marche-deploy-group" ]]; then
   ZIPNAME="deployment/docomo-39marche-"${CIRCLE_BRANCH}"-"${CIRCLE_BUILD_NUM}".zip"
+else
+  ZIPNAME=${CIRCLE_BRANCH}"-"${CIRCLE_BUILD_NUM}"-"${CIRCLE_SHA1}".zip"
 fi
 
 echo "The zip file name is ZIPNAME. -> ${ZIPNAME}";
